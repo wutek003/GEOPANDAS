@@ -34,6 +34,7 @@ ax.axis("off")
 merged = gpd.sjoin(gdf, cell, how='left', op='within')
 dissolve = merged.dissolve(by="index_right", aggfunc="sum")
 
+#Ludność w siatce
 cell.loc[dissolve.index, 'TOT'] = dissolve.TOT.values
 ax = cell.plot(column='TOT', figsize=(12, 8), cmap='viridis', vmax=700000, edgecolor="grey", legend = True)
 plt.autoscale(True)
@@ -41,6 +42,7 @@ ax.set_axis_on()
 plt.axis('equal');
 plt.title('Ludność w siatce')
 
+#Ludzie w województwach
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
 gdf['centroid']=gdf.centroid
@@ -60,6 +62,7 @@ ax.set_axis_on()
 plt.axis('equal');
 plt.title('Ludzie w województwach')
 
+#Liczba ludzi w wieku 0-14 lat w poszczególnych województwach
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
 gdf['centroid']=gdf.centroid
@@ -79,6 +82,7 @@ ax.set_axis_on()
 plt.axis('equal');
 plt.title('Liczba ludzi w wieku 0-14 lat w poszczególnych województwach')
 
+#Liczba ludzi w wieku 15-64 lat w poszczególnych województwach
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
 gdf['centroid']=gdf.centroid
@@ -98,6 +102,7 @@ ax.set_axis_on()
 plt.axis('equal');
 plt.title('Liczba ludzi w wieku 15-64 lat w poszczególnych województwach')
 
+#Liczba ludzi w wieku większym niż 65 lat w poszczególnych województwach
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
 gdf['centroid']=gdf.centroid
@@ -117,6 +122,7 @@ ax.set_axis_on()
 plt.axis('equal');
 plt.title('Liczba ludzi w wieku większym niż 65 lat w poszczególnych województwach')
 
+#Liczba mężczyzn w wieku 0-14 lat w poszczególnych województwach
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
 gdf['centroid']=gdf.centroid
@@ -136,6 +142,7 @@ ax.set_axis_on()
 plt.axis('equal');
 plt.title('Liczba mężczyzn w wieku 0-14 lat w poszczególnych województwach')
 
+#Liczba mężczyzn w wieku 15-64 lat w poszczególnych województwach
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
 gdf['centroid']=gdf.centroid
@@ -155,6 +162,7 @@ ax.set_axis_on()
 plt.axis('equal');
 plt.title('Liczba mężczyzn w wieku 15-64 lat w poszczególnych województwach')
 
+#Liczba mężczyzn w wieku większym niż 65 lat w poszczególnych województwach
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
 gdf['centroid']=gdf.centroid
@@ -174,6 +182,7 @@ ax.set_axis_on()
 plt.axis('equal');
 plt.title('Liczba mężczyzn w wieku większym niż 65 lat w poszczególnych województwach')
 
+#Liczba kobiet w wieku 0-14 lat w poszczególnych województwach
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
 gdf['centroid']=gdf.centroid
@@ -193,6 +202,7 @@ ax.set_axis_on()
 plt.axis('equal');
 plt.title('Liczba kobiet w wieku 0-14 lat w poszczególnych województwach')
 
+#Liczba kobiet w wieku 15-64 lat w poszczególnych województwach
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
 gdf['centroid']=gdf.centroid
@@ -212,6 +222,7 @@ ax.set_axis_on()
 plt.axis('equal');
 plt.title('Liczba kobiet w wieku 15-64 lat w poszczególnych województwach')
 
+#Liczba kobiet w wieku większym niż 65 lat w poszczególnych województwach
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
 gdf['centroid']=gdf.centroid
