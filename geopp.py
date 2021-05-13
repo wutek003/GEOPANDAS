@@ -39,3 +39,22 @@ plt.autoscale(True)
 ax.set_axis_on()
 plt.axis('equal');
 plt.title('Ludność w siatce')
+
+gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
+gdf=gdf.to_crs("EPSG:4326")
+gdf['centroid']=gdf.centroid
+gdw=gpd.read_file('Województwa.shp')
+gdw=gdw.to_crs("EPSG:4326")
+cell = gpd.GeoDataFrame(gdw, columns=['geometry'])
+ax=gdf.plot(markersize=.1, figsize=(12, 8), column='TOT', cmap='jet')
+plt.autoscale(False)
+cell.plot(ax=ax, facecolor="none", edgecolor='grey')
+ax.axis("off")
+merged = gpd.sjoin(gdf, cell, how='left', op='within')
+dissolve = merged.dissolve(by="index_right", aggfunc="sum")
+cell.loc[dissolve.index, 'TOT'] = dissolve.TOT.values
+ax = cell.plot(column='TOT', figsize=(12, 8), cmap='viridis', edgecolor="grey", legend = True)
+plt.autoscale(True)
+ax.set_axis_on()
+plt.axis('equal');
+plt.title('Ludzie w województwach')
