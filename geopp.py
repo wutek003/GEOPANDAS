@@ -10,7 +10,7 @@ import pandas as pd
 import math as m
 import numpy as np
 import matplotlib.pyplot as plt
-import shapely as shap
+
 
 gdf=gpd.read_file('PD_STAT_GRID_CELL_2011.shp')
 gdf=gdf.to_crs("EPSG:4326")
