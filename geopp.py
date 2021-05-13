@@ -95,4 +95,4 @@ ax = cell.plot(column='TOT_15_64', figsize=(12, 8), cmap='viridis', edgecolor="g
 plt.autoscale(True)
 ax.set_axis_on()
 plt.axis('equal');
-plt.title('Liczba ludzi w wieku 15-65 lat w poszczególnych województwach')
+plt.title('Liczba ludzi w wieku 15-64 lat w poszczególnych województwach')
