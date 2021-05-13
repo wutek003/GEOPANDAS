@@ -30,7 +30,7 @@ cell = gpd.GeoDataFrame(grid_cells, columns=['geometry'])
 ax=gdf.plot(markersize=.1, figsize=(12, 8), column='TOT', cmap='jet')
 plt.autoscale(False)
 cell.plot(ax=ax, facecolor="none", edgecolor='grey')
-ax.axis("on")
+ax.axis("off")
 merged = gpd.sjoin(gdf, cell, how='left', op='within')
 dissolve = merged.dissolve(by="index_right", aggfunc="sum")
 cell.loc[dissolve.index, 'TOT'] = dissolve.TOT.values
